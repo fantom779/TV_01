@@ -1,0 +1,1700 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Настанови для підлітків XXI століття</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+:root{
+    --blue:#32d9ff;
+    --violet:#9b6cff;
+    --pink:#ff5ccf;
+    --green:#63f5ae;
+    --white:#ffffff;
+    --gray:#b9c6d8;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+body{
+    font-family:"Segoe UI",Arial,sans-serif;
+    color:white;
+    background:
+        radial-gradient(circle at 20% 20%,rgba(50,217,255,.18),transparent 30%),
+        radial-gradient(circle at 80% 75%,rgba(155,108,255,.20),transparent 32%),
+        radial-gradient(circle at 50% 120%,rgba(255,92,207,.13),transparent 35%),
+        #060b16;
+}
+
+
+/* ================= ФОНОВА СІТКА ================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+
+    background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+
+    background-size:55px 55px;
+
+    mask-image:linear-gradient(
+        to bottom,
+        transparent,
+        black 15%,
+        black 85%,
+        transparent
+    );
+
+    pointer-events:none;
+}
+
+
+/* ================= ДЕКОР ================= */
+
+.decor{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:0;
+}
+
+.orb{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(2px);
+    opacity:.75;
+    animation:float 7s ease-in-out infinite;
+}
+
+.orb1{
+    width:180px;
+    height:180px;
+    left:-70px;
+    top:12%;
+    background:radial-gradient(circle,#32d9ff55,transparent 70%);
+}
+
+.orb2{
+    width:260px;
+    height:260px;
+    right:-100px;
+    top:8%;
+    background:radial-gradient(circle,#9b6cff55,transparent 70%);
+    animation-delay:1s;
+}
+
+.orb3{
+    width:220px;
+    height:220px;
+    right:5%;
+    bottom:-100px;
+    background:radial-gradient(circle,#ff5ccf40,transparent 70%);
+    animation-delay:2s;
+}
+
+.orb4{
+    width:170px;
+    height:170px;
+    left:8%;
+    bottom:-80px;
+    background:radial-gradient(circle,#32d9ff35,transparent 70%);
+    animation-delay:3s;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0) translateX(0);
+    }
+    50%{
+        transform:translateY(-25px) translateX(15px);
+    }
+}
+
+
+/* ================= БОКОВІ ЛІНІЇ ================= */
+
+.side-line{
+    position:fixed;
+    top:12%;
+    bottom:12%;
+    width:2px;
+
+    background:linear-gradient(
+        transparent,
+        #32d9ff,
+        #9b6cff,
+        transparent
+    );
+
+    opacity:.45;
+    z-index:1;
+}
+
+.side-line.left{
+    left:35px;
+}
+
+.side-line.right{
+    right:35px;
+}
+
+.side-line::before,
+.side-line::after{
+    content:"";
+    position:absolute;
+
+    width:9px;
+    height:9px;
+
+    border-radius:50%;
+
+    background:#32d9ff;
+
+    box-shadow:
+        0 0 15px #32d9ff,
+        0 0 35px #32d9ff;
+}
+
+.side-line::before{
+    top:0;
+    left:-4px;
+}
+
+.side-line::after{
+    bottom:0;
+    left:-4px;
+}
+
+
+/* ================= СЛАЙД ================= */
+
+.slide{
+    position:absolute;
+    inset:0;
+
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:
+        65px
+        clamp(70px,10vw,150px)
+        90px;
+
+    opacity:0;
+}
+
+.slide.active{
+    display:flex;
+    animation:showSlide .65s cubic-bezier(.2,.8,.2,1) forwards;
+}
+
+@keyframes showSlide{
+    from{
+        opacity:0;
+        transform:scale(.97) translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1) translateY(0);
+    }
+}
+
+.content{
+    width:min(1250px,100%);
+    position:relative;
+    z-index:5;
+}
+
+
+/* ================= МАЛИЙ ЗАГОЛОВОК ================= */
+
+.kicker{
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    color:#55ddff;
+
+    font-size:
+        clamp(14px,1.4vw,21px);
+
+    font-weight:900;
+
+    letter-spacing:2.5px;
+    text-transform:uppercase;
+
+    margin-bottom:22px;
+}
+
+.kicker::before{
+    content:"";
+
+    width:45px;
+    height:4px;
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #32d9ff,
+            #9b6cff,
+            #ff5ccf
+        );
+
+    box-shadow:
+        0 0 15px #32d9ff;
+}
+
+
+/* ================= ЗАГОЛОВКИ ================= */
+
+h1{
+    font-size:
+        clamp(52px,7vw,105px);
+
+    line-height:.95;
+
+    letter-spacing:-5px;
+
+    font-weight:950;
+
+    margin-bottom:30px;
+}
+
+h2{
+    font-size:
+        clamp(42px,5.5vw,78px);
+
+    line-height:1;
+
+    letter-spacing:-3px;
+
+    font-weight:950;
+
+    margin-bottom:30px;
+}
+
+.gradient{
+    background:
+        linear-gradient(
+            100deg,
+            #fff 10%,
+            #32d9ff 45%,
+            #9b6cff 70%,
+            #ff5ccf
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+}
+
+.lead{
+    max-width:1000px;
+
+    color:#bbc8da;
+
+    font-size:
+        clamp(21px,2vw,31px);
+
+    line-height:1.45;
+}
+
+
+/* ================= БЕЙДЖ ================= */
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+
+    margin-top:30px;
+
+    padding:11px 19px;
+
+    border-radius:100px;
+
+    border:1px solid rgba(255,255,255,.16);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.09),
+            rgba(255,255,255,.03)
+        );
+
+    box-shadow:
+        inset 0 0 20px rgba(255,255,255,.03),
+        0 10px 30px rgba(0,0,0,.2);
+
+    color:#d9e5f5;
+
+    font-size:16px;
+    font-weight:800;
+}
+
+
+/* ================= КАРТКИ ================= */
+
+.grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,minmax(0,1fr));
+
+    gap:20px;
+
+    margin-top:35px;
+}
+
+.card{
+    position:relative;
+
+    padding:27px;
+
+    border-radius:25px;
+
+    border:1px solid rgba(255,255,255,.13);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.09),
+            rgba(255,255,255,.035)
+        );
+
+    backdrop-filter:blur(15px);
+
+    overflow:hidden;
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.25);
+}
+
+.card::before{
+    content:"";
+
+    position:absolute;
+
+    width:100px;
+    height:100px;
+
+    right:-45px;
+    top:-45px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #32d9ff35,
+            transparent 70%
+        );
+}
+
+.card strong{
+    display:block;
+
+    font-size:
+        clamp(22px,2vw,30px);
+
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#b9c7d9;
+
+    font-size:
+        clamp(17px,1.5vw,23px);
+
+    line-height:1.45;
+}
+
+
+/* ================= НАСТАНОВА ================= */
+
+.tip{
+    display:grid;
+
+    grid-template-columns:
+        120px 1fr;
+
+    gap:35px;
+
+    align-items:start;
+}
+
+.number{
+    position:relative;
+
+    width:105px;
+    height:105px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #32d9ff,
+            #806aff,
+            #ff5ccf
+        );
+
+    color:#07101c;
+
+    font-size:39px;
+
+    font-weight:950;
+
+    box-shadow:
+        0 0 35px #32d9ff30,
+        0 20px 50px #0008;
+}
+
+.number::after{
+    content:"";
+
+    position:absolute;
+
+    inset:6px;
+
+    border-radius:25px;
+
+    border:1px solid rgba(255,255,255,.35);
+}
+
+.advice{
+    font-size:
+        clamp(30px,3.3vw,50px);
+
+    line-height:1.12;
+
+    font-weight:950;
+
+    margin-bottom:20px;
+}
+
+.explain{
+    max-width:1050px;
+
+    color:#bdc9da;
+
+    font-size:
+        clamp(19px,1.8vw,27px);
+
+    line-height:1.5;
+}
+
+.quote{
+    max-width:1050px;
+
+    margin-top:30px;
+
+    padding:20px 25px;
+
+    border-left:
+        5px solid #32d9ff;
+
+    border-radius:
+        0 18px 18px 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(50,217,255,.09),
+            transparent
+        );
+
+    color:#e4edf8;
+
+    font-size:
+        clamp(18px,1.6vw,25px);
+
+    line-height:1.4;
+}
+
+
+/* ================= ДЕКОРАТИВНІ КУТИ ================= */
+
+.corner{
+    position:absolute;
+
+    width:70px;
+    height:70px;
+
+    opacity:.65;
+}
+
+.corner::before,
+.corner::after{
+    content:"";
+
+    position:absolute;
+
+    background:#32d9ff;
+}
+
+.corner::before{
+    width:70px;
+    height:2px;
+}
+
+.corner::after{
+    width:2px;
+    height:70px;
+}
+
+.corner.tl{
+    left:50px;
+    top:40px;
+}
+
+.corner.tr{
+    right:50px;
+    top:40px;
+    transform:rotate(90deg);
+}
+
+.corner.bl{
+    left:50px;
+    bottom:75px;
+    transform:rotate(-90deg);
+}
+
+.corner.br{
+    right:50px;
+    bottom:75px;
+    transform:rotate(180deg);
+}
+
+
+/* ================= ФІНАЛ ================= */
+
+.final{
+    text-align:center;
+}
+
+.final .content{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.final-title{
+    font-size:
+        clamp(55px,8vw,115px);
+
+    font-weight:950;
+
+    line-height:.95;
+
+    letter-spacing:-5px;
+
+    background:
+        linear-gradient(
+            100deg,
+            #fff,
+            #32d9ff,
+            #9b6cff,
+            #ff5ccf
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+
+    text-shadow:
+        0 0 50px rgba(50,217,255,.15);
+}
+
+.check{
+    width:105px;
+    height:105px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:32px;
+
+    margin-bottom:30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #63f5ae,
+            #32d9ff
+        );
+
+    color:#06101a;
+
+    font-size:55px;
+
+    font-weight:950;
+
+    box-shadow:
+        0 0 40px #63f5ae35,
+        0 20px 50px #0008;
+}
+
+
+/* ================= КЕРУВАННЯ ================= */
+
+.controls{
+    position:fixed;
+
+    left:0;
+    right:0;
+    bottom:0;
+
+    height:65px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 30px;
+
+    z-index:100;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(3,7,15,.85)
+        );
+}
+
+.counter{
+    color:#aebbd0;
+
+    font-size:15px;
+
+    font-weight:900;
+}
+
+.hint{
+    color:#718197;
+
+    font-size:13px;
+}
+
+.dots{
+    display:flex;
+    gap:7px;
+}
+
+.dot{
+    width:7px;
+    height:7px;
+
+    border-radius:50%;
+
+    background:#435169;
+
+    transition:.3s;
+
+    cursor:pointer;
+}
+
+.dot.active{
+    width:25px;
+
+    border-radius:20px;
+
+    background:#32d9ff;
+
+    box-shadow:
+        0 0 15px #32d9ff;
+}
+
+.progress{
+    position:absolute;
+
+    left:0;
+    bottom:0;
+
+    height:4px;
+
+    width:0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #32d9ff,
+            #9b6cff,
+            #ff5ccf
+        );
+
+    box-shadow:
+        0 0 15px #32d9ff;
+
+    transition:
+        width .4s;
+}
+
+
+/* ================= АДАПТАЦІЯ ================= */
+
+@media(max-width:800px){
+
+    .slide{
+        padding:40px 30px 80px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .tip{
+        grid-template-columns:70px 1fr;
+        gap:18px;
+    }
+
+    .number{
+        width:65px;
+        height:65px;
+
+        border-radius:20px;
+
+        font-size:25px;
+    }
+
+    .hint{
+        display:none;
+    }
+
+    .side-line,
+    .corner{
+        display:none;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ДЕКОР -->
+
+<div class="decor">
+
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+    <div class="orb orb4"></div>
+
+</div>
+
+<div class="side-line left"></div>
+<div class="side-line right"></div>
+
+<div class="corner tl"></div>
+<div class="corner tr"></div>
+<div class="corner bl"></div>
+<div class="corner br"></div>
+
+
+<div id="presentation">
+
+
+<!-- ================================================= -->
+<!-- 1 -->
+<!-- ================================================= -->
+
+<section class="slide active">
+
+<div class="content">
+
+<div class="kicker">
+ДАВНЯ УКРАЇНСЬКА ЛІТЕРАТУРА
+</div>
+
+<h1>
+Настанови для<br>
+<span class="gradient">
+підлітків XXI століття
+</span>
+</h1>
+
+<p class="lead">
+11 сучасних правил, які допоможуть
+не загубитися між школою, соцмережами,
+друзями та реальним життям.
+</p>
+
+<div class="badge">
+✦ Творче завдання • 9 клас
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- 2 -->
+<!-- ================================================= -->
+
+<section class="slide">
+
+<div class="content">
+
+<div class="kicker">
+ПЕРЕДМОВА
+</div>
+
+<h2>
+Часи змінилися.<br>
+<span class="gradient">
+Людські проблеми — не дуже.
+</span>
+</h2>
+
+<p class="lead">
+У «Повчанні» Володимира Мономаха
+йдеться про відповідальність,
+працю, обережність і ставлення до людей.
+Сьогодні ці принципи можна перекласти
+мовою XXI століття.
+</p>
+
+<div class="grid">
+
+<div class="card">
+<strong>◈ Нові виклики</strong>
+<p>
+Соцмережі, смартфони, цифровий слід
+та інформаційний шум.
+</p>
+</div>
+
+<div class="card">
+<strong>◈ Старі цінності</strong>
+<p>
+Чесність, повага, відповідальність
+та здоровий глузд.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- 3 -->
+<!-- ================================================= -->
+
+<section class="slide">
+
+<div class="content">
+
+<div class="tip">
+
+<div class="number">01</div>
+
+<div>
+
+<div class="kicker">
+НАСТАНОВА №1
+</div>
+
+<div class="advice">
+Бережи психічне здоров’я.
+</div>
+
+<div class="explain">
+Якщо тобі тривожно, сумно або важко —
+не грай роль «мені нормально».
+Поговори з людиною, якій довіряєш.
+Просити допомоги — не слабкість.
+</div>
+
+<div class="quote">
+«Сильна людина не та, що ніколи не падає,
+а та, що знає, коли треба піднятися».
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- 4 -->
+<!-- ================================================= -->
+
+<section class="slide">
+
+<div class="content">
+
+<div class="tip">
+
+<div class="number">02</div>
+
+<div>
+
+<div class="kicker">
+НАСТАНОВА №2
+</div>
+
+<div class="advice">
+Думай, перш ніж щось публікувати.
+</div>
+
+<div class="explain">
+Інтернет має дуже довгу пам’ять.
+Фото, повідомлення, геолокація чи особисті дані
+можуть залишитися в мережі набагато довше,
+ніж тобі хотілося б.
+</div>
+
+<div class="quote">
+Якщо не показав би це всьому класу
+на проекторі — можливо, не варто викладати.
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- 5 -->
+<!-- ================================================= -->
+
+<section class="slide">
+
+<div class="content">
+
+<div class="tip">
+
+<div class="number">03</div>
+
+<div>
+
+<div class="kicker">
+НАСТАНОВА №3
+</div>
+
+<div class="advice">
+Телефон — інструмент, а не господар.
+</div>
+
+<div class="explain">
+Відкладай смартфон хоча б на частину дня.
+Сон, спорт, навчання та живе спілкування
+не мають працювати у фоновому режимі.
+</div>
+
+<div class="quote">
+Твій телефон має бути в кишені.
+Не навпаки.
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- 6 -->
+<!-- ================================================= -->
+
+<section class="slide">
+
+<div class="content">
+
+<div class="tip">
+
+<div class="number">04</div>
+
+<div>
+
+<div class="kicker">
+НАСТАНОВА №4
+</div>
+
+<div class="advice">
+Не кажи: «Мені нудно».
+</div>
+
+<div class="explain">
+Нудьга — не надзвичайна ситуація.
+Допоможи батькам, вийди на прогулянку,
+займися спортом або навчися чогось нового.
+</div>
+
+<div class="quote">
+Іноді найкращий антидот від нудьги —
+зробити те, що давно відкладав.
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- 7 -->
+<!-- ================================================= -->
+
+<section class="slide">
+
+<div class="content">
+
+<div class="tip">
+
+<div class="number">05</div>
+
+<div>
+
+<div class="kicker">
+НАСТАНОВА №5
+</div>
+
+<div class="advice">
+Не продавай своє життя заради лайків.
+</div>
+
+<div class="explain">
+Популярність у соцмережах не визначає
+твою цінність.
+Не ризикуй здоров’ям, безпекою чи репутацією
+заради кількох секунд уваги.
+</div>
+
+<div class="quote">
+Лайк — це натискання пальцем.
+Твоя безпека — набагато дорожча.
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- 8 -->
+<!-- ================================================= -->
+
+<section class="slide">
+
+<div class="content">
+
+<div class="tip">
+
+<div class="number">06</div>
+
+<div>
+
+<div class="kicker">
+НАСТАНОВА №6
+</div>
+
+<div class="advice">
+Вчися не тільки заради оцінки.
+</div>
+
+<div class="explain">
+Оцінка закінчується разом із контрольною.
+Знання залишаються.
+Навіть якщо зараз формула здається
+абсолютно непотрібною.
+</div>
+
+<div class="quote">
+Мета навчання — не просто «12 у журналі»,
+а голова, яка вміє думати.
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- 9 -->
+<!-- ================================================= -->
+
+<section class="slide">
+
+<div class="content">
+
+<div class="tip">
+
+<div class="number">07</div>
+
+<div>
+
+<div class="kicker">
+НАСТАНОВА №7
+</div>
+
+<div class="advice">
+Поважай людей, навіть якщо вони не схожі на тебе.
+</div>
+
+<div class="explain">
+Не принижуй слабшого, не цькуй за зовнішність,
+погляди чи помилки.
+Сила характеру видно не тоді, коли ти можеш
+когось перемогти, а коли можеш не принизити.
+</div>
+
+<div class="quote">
+Повага нічого не коштує,
+але дуже багато говорить про тебе.
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- 10 -->
+<!-- ================================================= -->
+
+<section class="slide">
+
+<div class="content">
+
+<div class="tip">
+
+<div class="number">08</div>
+
+<div>
+
+<div class="kicker">
+НАСТАНОВА №8
+</div>
+
+<div class="advice">
+Вмій сказати «ні».
+</div>
+
+<div class="explain">
+Друзі можуть запропонувати дурницю.
+Компанія може тиснути.
+Але рішення все одно твоє.
+Не роби небезпечних речей лише для того,
+щоб «не бути білою вороною».
+</div>
+
+<div class="quote">
+Круто — це мати власну голову,
+а не працювати за чужою командою.
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- 11 -->
+<!-- ================================================= -->
+
+<section class="slide">
+
+<div class="content">
+
+<div class="tip">
+
+<div class="number">09</div>
+
+<div>
+
+<div class="kicker">
+НАСТАНОВА №9
+</div>
+
+<div class="advice">
+Дбай про своє тіло.
+</div>
+
+<div class="explain">
+Сон, нормальна їжа, рух і відпочинок —
+не нудні поради.
+Це базове технічне обслуговування організму.
+</div>
+
+<div class="quote">
+Спорт — для сили.
+Сон — для мозку.
+Їжа — для всього іншого.
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- 12 -->
+<!-- ================================================= -->
+
+<section class="slide">
+
+<div class="content">
+
+<div class="tip">
+
+<div class="number">10</div>
+
+<div>
+
+<div class="kicker">
+НАСТАНОВА №10
+</div>
+
+<div class="advice">
+Помиляйся, але роби висновки.
+</div>
+
+<div class="explain">
+Провал на контрольній, сварка з другом
+чи невдале рішення — це не кінець світу.
+Небезпечно не помилитися,
+а повторити ту саму помилку десять разів.
+</div>
+
+<div class="quote">
+Помилка без висновку —
+це просто платна підписка на ту саму проблему.
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- 13 -->
+<!-- ================================================= -->
+
+<section class="slide">
+
+<div class="content">
+
+<div class="tip">
+
+<div class="number">11</div>
+
+<div>
+
+<div class="kicker">
+НАСТАНОВА №11
+</div>
+
+<div class="advice">
+Бери відповідальність за своє майбутнє.
+</div>
+
+<div class="explain">
+Вибирай, ким хочеш стати,
+розвивай навички та не чекай,
+що хтось проживе твоє життя замість тебе.
+Маленькі рішення сьогодні формують
+великі результати завтра.
+</div>
+
+<div class="quote">
+Майбутнє не приходить готовим.
+Його доводиться збирати самому.
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- 14 -->
+<!-- ================================================= -->
+
+<section class="slide">
+
+<div class="content">
+
+<div class="kicker">
+ПІДСУМОК
+</div>
+
+<h2>
+11 правил.<br>
+<span class="gradient">
+Одна проста ідея.
+</span>
+</h2>
+
+<div class="grid">
+
+<div class="card">
+<strong>◈ Думай</strong>
+<p>
+Не роби щось лише тому,
+що це роблять усі.
+</p>
+</div>
+
+<div class="card">
+<strong>◈ Поважай</strong>
+<p>
+Стався до інших так,
+як хочеш, щоб ставилися до тебе.
+</p>
+</div>
+
+<div class="card">
+<strong>◈ Бережи себе</strong>
+<p>
+Онлайн і офлайн безпека
+важливіша за лайки.
+</p>
+</div>
+
+<div class="card">
+<strong>◈ Розвивайся</strong>
+<p>
+Твоє майбутнє залежить
+від твоїх рішень уже зараз.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- 15 ФІНАЛ -->
+<!-- ================================================= -->
+
+<section class="slide final">
+
+<div class="content">
+
+<div class="check">
+✓
+</div>
+
+<div class="kicker">
+ФІНАЛ
+</div>
+
+<div class="final-title">
+ДЯКУЮ ЗА УВАГУ!
+</div>
+
+<p class="lead" style="margin-top:30px;">
+Найкраща настанова —
+та, яку не просто почув,
+а почав виконувати.
+</p>
+
+<div class="badge">
+✦ 9-Б • Творче завдання
+</div>
+
+</div>
+
+</section>
+
+
+</div>
+
+
+<!-- ================= КЕРУВАННЯ ================= -->
+
+<div class="controls">
+
+<div class="counter">
+<span id="current">1</span>
+/
+<span id="total">15</span>
+</div>
+
+<div class="dots" id="dots"></div>
+
+<div class="hint">
+← → / Space — перемикання • F — повний екран
+</div>
+
+<div class="progress" id="progress"></div>
+
+</div>
+
+
+<script>
+
+const slides =
+document.querySelectorAll(".slide");
+
+let current = 0;
+
+const currentText =
+document.getElementById("current");
+
+const totalText =
+document.getElementById("total");
+
+const progress =
+document.getElementById("progress");
+
+const dots =
+document.getElementById("dots");
+
+
+totalText.textContent =
+slides.length;
+
+
+/* створення крапок */
+
+slides.forEach((slide,index)=>{
+
+    const dot =
+    document.createElement("div");
+
+    dot.className="dot";
+
+    if(index===0)
+        dot.classList.add("active");
+
+    dot.onclick=()=>{
+        goTo(index);
+    };
+
+    dots.appendChild(dot);
+
+});
+
+
+function goTo(index){
+
+    current =
+    (index + slides.length)
+    % slides.length;
+
+
+    slides.forEach((slide,i)=>{
+
+        slide.classList.toggle(
+            "active",
+            i===current
+        );
+
+    });
+
+
+    document
+    .querySelectorAll(".dot")
+    .forEach((dot,i)=>{
+
+        dot.classList.toggle(
+            "active",
+            i===current
+        );
+
+    });
+
+
+    currentText.textContent =
+    current+1;
+
+
+    progress.style.width =
+    ((current+1)/slides.length*100)
+    +"%";
+
+}
+
+
+function next(){
+    goTo(current+1);
+}
+
+
+function previous(){
+    goTo(current-1);
+}
+
+
+/* клавіатура */
+
+document.addEventListener(
+"keydown",
+event=>{
+
+    if(
+        event.key==="ArrowRight" ||
+        event.key==="ArrowDown" ||
+        event.key==="PageDown" ||
+        event.key===" "
+    ){
+
+        event.preventDefault();
+
+        next();
+
+    }
+
+
+    if(
+        event.key==="ArrowLeft" ||
+        event.key==="ArrowUp" ||
+        event.key==="PageUp"
+    ){
+
+        event.preventDefault();
+
+        previous();
+
+    }
+
+
+    /* F — fullscreen */
+
+    if(
+        event.key.toLowerCase()==="f"
+    ){
+
+        if(
+            !document.fullscreenElement
+        ){
+
+            document
+            .documentElement
+            .requestFullscreen();
+
+        }else{
+
+            document.exitFullscreen();
+
+        }
+
+    }
+
+
+    if(event.key==="Home"){
+        goTo(0);
+    }
+
+
+    if(event.key==="End"){
+        goTo(slides.length-1);
+    }
+
+});
+
+
+/* клік по екрану */
+
+document.addEventListener(
+"click",
+event=>{
+
+    if(
+        event.target.closest(".controls")
+    )
+        return;
+
+
+    if(
+        event.clientX >
+        window.innerWidth/2
+    ){
+
+        next();
+
+    }else{
+
+        previous();
+
+    }
+
+});
+
+
+goTo(0);
+
+</script>
+
+</body>
+</html>
